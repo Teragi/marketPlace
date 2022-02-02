@@ -121,9 +121,13 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
+var image = document.getElementsByClassName("active");
+var div = document.getElementById("imageModal");
+
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
   modal.style.display = "block";
+  div.appendChild(image);
 }
 
 // When the user clicks on <span> (x), close the modal
