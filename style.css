@@ -136,6 +136,9 @@ hr {
     margin: 0 -24px;
     color: #d3d3d3;
 }
+.empty{
+    display: flex;
+}
 .basket-empty {
     font-size: 1.5rem;
     font-weight: 400;
@@ -187,7 +190,7 @@ hr {
    gap: 18px;
    
 }
-.basket-content {
+.basket-content, .checkout {
     display: flex;
     gap: 16px
 }

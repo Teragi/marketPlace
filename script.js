@@ -1,6 +1,3 @@
-const arrowPrevious = document.querySelector(".arrow-left");
-const arrowNext = document.querySelector(".arrow-right");
-const slider = document.querySelector(".slider");
 const popup = document.querySelector(".basket-popover")
 
 // Popup cart
@@ -18,44 +15,50 @@ const popup = document.querySelector(".basket-popover")
 // }
 
 function show(){
+    let full = document.getElementById("full");
+    let empty = document.getElementById("empty");
     let show = document.getElementById("show");
-  if (show.style.display === "none") {
+  if (show.style.display === "none" && empty === 0) {
     show.style.display = "block";
-  } else {
-    show.style.display = "none";
+    empty.style.display = "block"
+    full.style.display = "none";
+  } else if(empty === productCount) {
+    show.style.display = "block";
+    empty.style.display = "none";
+    full.style.display = "block"
     console.log("show cliqué");
   }
 }
 
-// Cart empty
-function showEmpty(){
-    let empty = document.getElementById("empty");
-    const inputBtn = document.getElementById('input').value;
-    const newInputBtn = parseInt(inputBtn);
-    const total = newInputBtn * 125;
-    if(total === 0){
-        empty.style.display = "block";
-    } else {
-        empty.style.display = "none";
-        console.log("empty visible")
-    }
-}
-showEmpty();
-// Cart full
-function showFull(){
-    let full = document.getElementById("full");
-    const inputBtn = document.getElementById('input').value;
-    const newInputBtn = parseInt(inputBtn);
-    const total = newInputBtn * 125;
-    if(total > 0){
-        full.style.display = "block";
-    }else {
-        full.style.display = "none";
-        console.log("full visible")
-    }
-}
-showFull();
-// Counter
+// // Cart empty
+// function showEmpty(){
+//     let empty = document.getElementById("empty");
+//     const inputBtn = document.getElementById('input').value;
+//     const newInputBtn = parseInt(inputBtn);
+//     const total = newInputBtn * 125;
+//     if(total === 0){
+//         empty.style.display = "block";
+//     } else {
+//         empty.style.display = "none";
+//         console.log("empty visible")
+//     }
+// }
+// showEmpty();
+// // Cart full
+// function showFull(){
+//     let full = document.getElementById("full");
+//     const inputBtn = document.getElementById('input').value;
+//     const newInputBtn = parseInt(inputBtn);
+//     const total = newInputBtn * 125;
+//     if(total > 0){
+//         full.style.display = "block";
+//     }else {
+//         full.style.display = "none";
+//         console.log("full visible")
+//     }
+// }
+// showFull();
+// // Counter
 function productCount(product){
     const inputBtn = document.getElementById('input').value;
     const newInputBtn = parseInt(inputBtn);
@@ -141,3 +144,22 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+// imgs.addEventListener(click, function() {
+//   for(let i = 0; i < imgs.length; i++){
+
+//   }
+// })
+
+// const sliderContents = document.querySelectorAll('slider-contents');
+
+// imgs.forEach(sliderContents =>{
+//   sliderContents.addEventListener('click', function(){
+      
+//     document.div.innerHTML = imgs;
+//       this.classList.add('active-slide');
+//       imgs[index].classList.remove('active');
+//       index = this.getAttribute('data-clic') -1;
+//       imgs[index].classList.add('active');
+//   })
+// })
