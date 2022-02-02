@@ -7,10 +7,7 @@ function show(){
     let show = document.getElementById("show");
   if (show.style.display === "none") {
     show.style.display = "block";
-    empty.style.display = "block";
-  }
-  else if(full.style.display === "block"){
-      empty.style.display = "none";
+    empty.style.display ="block";
   }
    else {
     show.style.display = "none";
@@ -24,11 +21,20 @@ function productCount(product){
     let total = newInputBtn;
     if(product == true){
      total = newInputBtn + 1;
+     empty.style.display ="none";
      full.style.display = "block";
     }
     if(product == false && newInputBtn > 0){
      total = newInputBtn - 1;
     }
+    // Show full cart
+    if(total === 0){
+        empty.style.display = "block";
+        full.style.display = "none";
+    }
+    if(total > 0){
+        empty.style.display = "none"
+;    }
     document.getElementById('quantity').innerText = document.getElementById('input').value = total;
     document.getElementById('quantity2').innerText = document.getElementById('input').value = total;
     
@@ -73,19 +79,48 @@ slides.forEach(sliderContentsDesktop =>{
     })
 })
 
+suivant.addEventListener('click', slideSuivante);
+
+function slideSuivante(){
+    if(index < 2){
+        imgs[index].classList.remove('active');
+        index++;
+        imgs[index].classList.add('active');
+    }else if(index === 2){ 
+        imgs[index].classList.remove('active');
+        index = 0;
+        imgs[index].classList.add('active');
+    }
+}
+
+precedent.addEventListener('click', slidePrecedente);
+
+function slidePrecedente(){
+    if(index > 0){
+        imgs[index].classList.remove('active');
+        index--;
+        imgs[index].classList.add('active');
+    }else if(index === 0){
+        imgs[index].classList.remove('active');
+        index = 2;
+        imgs[index].classList.add('active');
+
+    }
+}
+
 // MODAL
 
 // Get the modal
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+var btn = document.querySelectorAll("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
 var image = document.getElementsByClassName("active");
-var div = document.getElementById("imageModal");
+var modalImage = document.getElementById("imageModal");
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
