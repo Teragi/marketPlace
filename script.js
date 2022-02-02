@@ -3,19 +3,19 @@ const arrowNext = document.querySelector(".arrow-right");
 const slider = document.querySelector(".slider");
 const popup = document.querySelector(".basket-popover")
 
-// TEST
+// Popup cart
 
-// Popup button
-for(let i = 0; popup.length; i++){
-    popup[i].addEventListener('click', () => {
-        if (show.style.display === "none") {
-            show.style.display = "block";
-          } else {
-            show.style.display = "none";
-          }
-        console.log("Bouton popup cliqué");
-    })
-}
+// Show cart
+// for(let i = 0; popup.length; i++){
+//     popup[i].addEventListener('click', () => {
+//         if (show.style.display === "none") {
+//             show.style.display = "block";
+//           } else {
+//             show.style.display = "none";
+//           }
+//         console.log("Bouton popup cliqué");
+//     })
+// }
 
 function show(){
     let show = document.getElementById("show");
@@ -23,23 +23,39 @@ function show(){
     show.style.display = "block";
   } else {
     show.style.display = "none";
+    console.log("show cliqué");
   }
 }
 
+// Cart empty
+function showEmpty(){
+    let empty = document.getElementById("empty");
+    const inputBtn = document.getElementById('input').value;
+    const newInputBtn = parseInt(inputBtn);
+    const total = newInputBtn * 125;
+    if(total === 0){
+        empty.style.display = "block";
+    } else {
+        empty.style.display = "none";
+        console.log("empty visible")
+    }
+}
+showEmpty();
+// Cart full
+function showFull(){
+    let full = document.getElementById("full");
+    const inputBtn = document.getElementById('input').value;
+    const newInputBtn = parseInt(inputBtn);
+    const total = newInputBtn * 125;
+    if(total > 0){
+        full.style.display = "block";
+    }else {
+        full.style.display = "none";
+        console.log("full visible")
+    }
+}
+showFull();
 // Counter
-// main.addEventListener('click', (event) => {
-//     const minusButton = event.target.closest(".minus");
-//     const plusButton = event.target.closest(".plus");
-//     const display = document.querySelectorAll(".current-value");
-//     if(minusButton) {
-//         if(display.textContent === "0") return
-//             display.textContent--;
-//     }
-//     if(plusButton) {
-//         if(display.textContent === "50") return
-//             display.textContent++;
-//     }
-// })
 function productCount(product){
     const inputBtn = document.getElementById('input').value;
     const newInputBtn = parseInt(inputBtn);
@@ -51,19 +67,20 @@ function productCount(product){
      total = newInputBtn - 1;
     }
     document.getElementById('quantity').innerText = document.getElementById('input').value = total;
+    document.getElementById('quantity2').innerText = document.getElementById('input').value = total;
     
  }
 
-//  Total
+//  Total + Add to cart
 
-        show.addEventListener('click', function(){
-           const inputBtn =   document.getElementById('quantity').innerText =  document.getElementById('input').value;
-           const newInputBtn = parseInt(inputBtn);
+        // show.addEventListener('click', function(){
+        //    const inputBtn =   document.getElementById('quantity').innerText =  document.getElementById('input').value;
+        //    const newInputBtn = parseInt(inputBtn);
 
-           const total = newInputBtn * 125;
-           document.getElementById('total-price').innerText = total;
-           console.log("125$")
-        })
+        //    const total = newInputBtn * 125;
+        //    document.getElementById('total-price').innerText = total;
+        //    console.log("125$")
+        // })
 
         const buyBtn = document.getElementById('buy');
         buyBtn.addEventListener('click', function(){
@@ -72,38 +89,9 @@ function productCount(product){
 
            const total = newInputBtn * 125;
            document.getElementById('total-price').innerText = total;
+           console.log("Bouton add to cart cliqué");
         })
-
-        // const calculatePrice = () => {
-        //     const amountOfPairs = document.querySelector(".current-value");
-        //     const value = parseInt(amountOfPairs.textContent);
-        //     const sneakersPrice = document.querySelector(".sneaker-price");
-        //     const xTimes = document.querySelector(".x-times");
-        //     const finalPrice = document.querySelector(".stronger");
-        //     const currentPrice = sneakersPrice.textContent;
-        //     const removeDolar = currentPrice.substring(1, 7);
-        //     const priceToNum = parseInt(removeDolar);
-        //     xTimes.textContent = "x" + value ;
-        //     finalPrice.textContent = "$" + value * priceToNum ; 
-        //  }
-        //  calculatePrice();
-// Add to cart button
-// for(let i = 0; addToCartButton.length; i++){
-//     addToCartButton[i].addEventListener('click', () => {
-//         console.log("Bouton Add to cart cliqué");
-//     })
-// // }
-// addToCartButton.addEventListener('click', () => {
-//     const amountOfPairs = document.querySelector(".current-value");
-//     const basketItems = document.querySelector(".number-of-items");
-//     const value = parseInt(amountOfPairs.innerHTML)
-//     if(value > 0) {
-//         basketItems.textContent = value;
-//         calculatePrice();
-//     }    
-// })
-
-
+        
 // Slider
 
 const imgs = document.querySelectorAll('.slider-contents img');
@@ -121,3 +109,31 @@ slides.forEach(sliderContentsDesktop =>{
         imgs[index].classList.add('active');
     })
 })
+
+// MODAL
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
