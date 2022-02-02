@@ -1,63 +1,22 @@
-const popup = document.querySelector(".basket-popover")
+const empty = document.getElementById("empty");
+const full = document.getElementById("full");
 
 // Popup cart
 
-// Show cart
-// for(let i = 0; popup.length; i++){
-//     popup[i].addEventListener('click', () => {
-//         if (show.style.display === "none") {
-//             show.style.display = "block";
-//           } else {
-//             show.style.display = "none";
-//           }
-//         console.log("Bouton popup cliqué");
-//     })
-// }
-
 function show(){
-    let full = document.getElementById("full");
-    let empty = document.getElementById("empty");
     let show = document.getElementById("show");
-  if (show.style.display === "none" && empty === 0) {
+  if (show.style.display === "none") {
     show.style.display = "block";
-    empty.style.display = "block"
-    full.style.display = "none";
-  } else if(empty === productCount) {
-    show.style.display = "block";
-    empty.style.display = "none";
-    full.style.display = "block"
+    empty.style.display = "block";
+  }
+  else if(full.style.display === "block"){
+      empty.style.display = "none";
+  }
+   else {
+    show.style.display = "none";
     console.log("show cliqué");
   }
 }
-
-// // Cart empty
-// function showEmpty(){
-//     let empty = document.getElementById("empty");
-//     const inputBtn = document.getElementById('input').value;
-//     const newInputBtn = parseInt(inputBtn);
-//     const total = newInputBtn * 125;
-//     if(total === 0){
-//         empty.style.display = "block";
-//     } else {
-//         empty.style.display = "none";
-//         console.log("empty visible")
-//     }
-// }
-// showEmpty();
-// // Cart full
-// function showFull(){
-//     let full = document.getElementById("full");
-//     const inputBtn = document.getElementById('input').value;
-//     const newInputBtn = parseInt(inputBtn);
-//     const total = newInputBtn * 125;
-//     if(total > 0){
-//         full.style.display = "block";
-//     }else {
-//         full.style.display = "none";
-//         console.log("full visible")
-//     }
-// }
-// showFull();
 // // Counter
 function productCount(product){
     const inputBtn = document.getElementById('input').value;
@@ -65,6 +24,7 @@ function productCount(product){
     let total = newInputBtn;
     if(product == true){
      total = newInputBtn + 1;
+     full.style.display = "block";
     }
     if(product == false && newInputBtn > 0){
      total = newInputBtn - 1;
