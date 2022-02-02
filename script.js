@@ -1,7 +1,7 @@
 const arrowPrevious = document.querySelector(".arrow-left");
 const arrowNext = document.querySelector(".arrow-right");
 const slider = document.querySelector(".slider");
-const popup = document.querySelector(".basket")
+const popup = document.querySelector(".basket-popover")
 
 // TEST
 
@@ -63,6 +63,15 @@ function productCount(product){
            const total = newInputBtn * 125;
            document.getElementById('total-price').innerText = total;
            console.log("125$")
+        })
+
+        const buyBtn = document.getElementById('buy');
+        buyBtn.addEventListener('click', function(){
+           const inputBtn =   document.getElementById('quantity').innerText =  document.getElementById('input').value;
+           const newInputBtn = parseInt(inputBtn);
+
+           const total = newInputBtn * 125;
+           document.getElementById('total-price').innerText = total;
         })
 
         // const calculatePrice = () => {

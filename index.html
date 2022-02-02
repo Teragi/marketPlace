@@ -32,15 +32,15 @@
     </nav>
     
     <div class="header-right-side">
-      <button  class="basket">
+      <button onclick="show()" class="basket">
         <span class="number-of-items">0</span>
         <img class="basket-img"src="images/icon-cart.svg" alt="">
       </button>
-      <div onclick="show()" class="basket-popover" hidden>
+      <div id="show" class="basket-popover" hidden>
         <p class="basket-header">Cart</p>
         <hr>
         <div class="basket-main">
-          <p class="basket-empty">Your cart is empty.</p>
+          <!-- <p class="basket-empty">Your cart is empty.</p> -->
           <div class="basket-container">
           <div class="basket-content">
             <img src="images/image-product-1-thumbnail.jpg" alt="" class="basket-image">
