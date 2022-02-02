@@ -95,7 +95,9 @@
     background-color: transparent;
     position: relative;
 }
-
+#quantity2{
+    display: none;
+}
 .number-of-items {
     position: absolute;
     top: -3px;
@@ -118,7 +120,7 @@
     box-shadow: 1px 30px 70px -28px rgba(0, 0, 0, 0.2);
     z-index: 110;
     padding: 24px;
-    width: 320px;
+    width: 300px;
     
 }
 .basket-popover.active {
@@ -159,7 +161,7 @@ hr {
     
 }
 .delete img {
-    width: 24px;
+    width: 20px;
 }
 .second-column p {
     margin-bottom: 8px
@@ -187,7 +189,7 @@ hr {
 .basket-container {
    display: flex;
    flex-direction: column;
-   gap: 18px;
+
    
 }
 .basket-content, .checkout {
@@ -196,7 +198,7 @@ hr {
 }
 
 .basket-image {
-    max-width: 64px;
+    max-width: 60px;
     border-radius: 8px;
 }
 
