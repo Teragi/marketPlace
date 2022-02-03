@@ -14,7 +14,6 @@
     display: none;
 }
     
-
 .primary-header {
     width: 80%;
     display: flex;
@@ -25,6 +24,7 @@
     margin:0 auto;
 }
 
+/* BarNav */
 .primary-navigation {
     list-style-type: none;
     display: flex;
@@ -41,9 +41,7 @@
     font-weight: 400;
     cursor: pointer;
 }
-
-
-
+/* BarNav mobile */
 .mobile-nav-toggle {
     background-image: url('images/icon-menu.svg');
     background-repeat: no-repeat;
@@ -51,6 +49,7 @@
     border: none;
     background-color: transparent;
     width: 24px;
+    aspect-ratio: 1;
     cursor: pointer;
 }
 .primary-navigation.active {
@@ -63,7 +62,7 @@
     inset: 0 40% 0 0;
     padding-top: 22px;
     padding-left: 16px;
-    background-color: #ffff; 
+    background-color: #fff; 
 }
 
 .links {
@@ -80,6 +79,7 @@
     border: none;
     background-color: transparent;
     width: 24px;
+    aspect-ratio: 1;
     cursor: pointer;
     margin-bottom: 24px;
 }
@@ -95,9 +95,7 @@
     background-color: transparent;
     position: relative;
 }
-#quantity2{
-    display: none;
-}
+/* number items */
 .number-of-items {
     position: absolute;
     top: -3px;
@@ -107,7 +105,9 @@
     border-radius: 50%;
     width: 22px;
     font-size: 0.875rem;
+    display: none;
 }
+/* Cart popup */
 .basket-popover {
     position: absolute;
     margin-top:20px;
@@ -118,7 +118,7 @@
     box-shadow: 1px 30px 70px -28px rgba(0, 0, 0, 0.2);
     z-index: 110;
     padding: 24px;
-    width: 300px;
+    width: 350px;
     
 }
 .basket-popover.active {
@@ -137,6 +137,11 @@ hr {
     color: #d3d3d3;
 }
 /* Cart shop */
+.content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 .txtCart, .sneaker-price{
     font-size: 15px;
     color: #d3d3d3;
@@ -161,9 +166,6 @@ hr {
     padding: auto;
     margin: 3px 0 0 3px;
 }
-.basket-content{
-    display: inline-flex;
-}
 .delete {
     border: none;
     outline: none;
@@ -185,6 +187,7 @@ hr {
     font-weight: 700;
 }
 .checkout {
+    margin-top: 15px;
     border: none;
     outline: none;
     background-color: #FF4500;
@@ -474,7 +477,6 @@ input{
 
 .amount-of-boots {
     width:50%;
-    background-color: #dadada;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -524,40 +526,19 @@ input{
 
 /* Responsive */
 
-@media screen and (min-width: 600px) {
-    .mobile-nav-toggle{
-        display:block;
-        color: #000;
-        height: 5px;
-    }
-    .close-mobile-nav {
-        display: block;
-    }
-    .primary-navigation{
-        display: none;
-    }
-
-}
-
-@media (min-width: 550px) and (max-width:800px){
+@media screen and (max-width: 550px){
+    /* BarNav */
     .primary-navigation {
         display: none;
     }
 
     .mobile-nav-toggle{
-        display: block;
+        display: flex;
     }
 
     .close-mobile-nav {
-        display: block;
+        display: flex;
     }
-
-    .sliderContentsDesktop {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 550px){
     main {
         /* flex-direction: column; */
         display: block;

@@ -1,8 +1,28 @@
+const nav = document.querySelector(".primary-navigation");
+const header = document.querySelector('.primary-header')
+const main = document.querySelector('main')
+
 const empty = document.getElementById("empty");
 const full = document.getElementById("full");
 const del = document.querySelector("delete");
 const quant = document.getElementById("quantity2");
 const check = document.getElementById("check");
+
+// BarNav
+header.addEventListener("click", (event) => {
+  const navToggle = event.target.closest(".mobile-nav-toggle")
+  if(navToggle) {
+      nav.classList.add('active')
+  }
+ 
+ })
+ 
+ header.addEventListener("click", (event) => {
+  const closeNav = event.target.closest(".close-mobile-nav")
+     if(closeNav) {
+         nav.classList.remove('active')
+     }
+ })
 
 // Popup cart
 function show(){

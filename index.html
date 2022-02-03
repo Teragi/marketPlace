@@ -13,7 +13,8 @@
 <!-- Header -->
   <header class="primary-header">
       <!-- Nav Bar -->
-    <button class="mobile-nav-toggle"></button>
+    <button class="mobile-nav-toggle">
+    </button>
     <div>
       <img src="images/logo.svg" alt="sneakers logo" class="logo">
     </div>
@@ -47,20 +48,20 @@
           <!-- Full cart -->
           <div class="basket-container">
           <div id="full" class="basket-content">
-            <img src="images/image-product-1-thumbnail.jpg" alt="" class="basket-image">
-            
+            <div class="content">
+              <img src="images/image-product-1-thumbnail.jpg" alt="" class="basket-image">
             <div class="second-column">
               <p class="txtCart">Fall Limited Edition Sneakers</p>
               <div class="price">
                 <span class="sneaker-price">$125.00</span> &nbsp;
                 <p>x<span class="x-times" id="quantity"></span></p> &nbsp;
-                <strong>$<span class="stronger" id="total-price">0</span></strong>
+                <strong>$<span class="stronger" id="total-price">0</span></strong> &nbsp;
               </div>
-              
-              
-            </div>
-            <!-- Delete -->
+              <!-- Delete -->
+              &emsp;
             <button onclick="remove()" class="delete"><img src="images/icon-delete.svg" alt="delete"></button>
+            </div>
+            </div>
           </div>
           <button id="check" class="checkout"><span>Checkout</span></button>
         </div>
