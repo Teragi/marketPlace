@@ -1,6 +1,6 @@
 const empty = document.getElementById("empty");
 const full = document.getElementById("full");
-// const del = document.querySelector("delete");
+const del = document.querySelector("delete");
 const quant = document.getElementById("quantity2");
 // Popup cart
 
@@ -8,7 +8,6 @@ function show(){
     let show = document.getElementById("show");
   if (show.style.display === "none") {
     show.style.display = "block";
-    empty.style.display ="block";
   }
    else {
     show.style.display = "none";
@@ -27,6 +26,7 @@ function productCount(product){
 
     }
     if(product == false && newInputBtn > 0){
+      empty.style.display = "none";
      total = newInputBtn - 1;
     }
     // Show full cart
@@ -43,12 +43,19 @@ function productCount(product){
  }
 
 //  Delete
-// function suppr(){
-//     del.addEventListener('click', function(){
-//         empty.style.display ="block";
-//         full.style.display = "none";
-//     })
+function remove()
+{
+  empty.style.display = "block";
+  full.style.display = "none";
+  quant.style.display = "none";
+  console.log("Delete cliq");
+}
+
+// function remove() {
+//   full.parentNode.removeChild(full);
+//   return false;
 // }
+
 //  Total + Add to cart
 
         // show.addEventListener('click', function(){
@@ -74,10 +81,11 @@ function productCount(product){
         
 // Slider
 
-const imgs = document.querySelectorAll('.slider-contents img');
-const suivant = document.querySelector('.arrow-right');
-const precedent = document.querySelector('.arrow-left');
-const slides = document.querySelectorAll('.desktopSlide');
+const imgs = document.querySelectorAll('.slide');
+const suivant = document.querySelector('.arrow-modal-right');
+const precedent = document.querySelector('.arrow-modal-left');
+const slides = Array.from(document.querySelectorAll('.desktopSlide'));
+const slidesModal = Array.from(document.querySelectorAll('.desktopSlideModal'));
 let index = 0;
 
 slides.forEach(sliderContentsDesktop =>{
@@ -92,41 +100,13 @@ slides.forEach(sliderContentsDesktop =>{
     })
 })
 
-suivant.addEventListener('click', slideSuivante);
-
-function slideSuivante(){
-    if(index < 3){
-        imgs[index].classList.remove('active');
-        index++;
-        imgs[index].classList.add('active');
-    }else if(index === 2){ 
-        imgs[index].classList.remove('active');
-        index = 0;
-        imgs[index].classList.add('active');
-    }
-}
-
-precedent.addEventListener('click', slidePrecedente);
-
-function slidePrecedente(){
-    if(index > 0){
-        imgs[index].classList.remove('active');
-        index--;
-        imgs[index].classList.add('active');
-    }else if(index === 0){
-        imgs[index].classList.remove('active');
-        index = 3;
-        imgs[index].classList.add('active');
-    }
-}
-
 // MODAL
 
 // Get the modal
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -134,22 +114,82 @@ var span = document.getElementsByClassName("close")[0];
 var modalImage = document.getElementById("imageModal");
 
 // When the user clicks the button, open the modal 
-btn.onclick = function () {
-  modal.style.display = "block";
-  var img = document.createElement('img');
-  img.src = imgs[index].src;
-  modalImage.appendChild(img);
-}
-
+slides.forEach(slide => {
+    slide.addEventListener('click', () => {
+        modal.style.display = "block";
+        var img = document.createElement('img');
+        img.src = imgs[index].src;
+        modalImage.appendChild(img);
+    })
+});
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
+  modalImage = "";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    modalImage = "";
   }
 }
+
+
+suivant.addEventListener('click', slideSuivante);
+
+function slideSuivante(){
+    if(index < 3){
+      clearcontent('imageModal');
+        index++;
+        var img = document.createElement('img');
+        img.src = imgs[index].src;
+        modalImage.appendChild(img);
+    }else if(index === 3){ 
+      clearcontent('imageModal');
+        index = 0;
+        var img = document.createElement('img');
+        img.src = imgs[index].src;
+        modalImage.appendChild(img);
+    }
+}
+
+precedent.addEventListener('click', slidePrecedente);
+
+function slidePrecedente(){
+    if(index > 0){
+        clearcontent('imageModal');
+        index--;
+        var img = document.createElement('img');
+        img.src = imgs[index].src;
+        modalImage.appendChild(img);
+    }else if(index === 0){
+      clearcontent('imageModal');
+        index = 3;
+        var img = document.createElement('img');
+        img.src = imgs[index].src;
+        modalImage.appendChild(img);
+    }
+}
+
+function clearcontent(elementID) {
+  document.getElementById(elementID).innerHTML = "";
+}
+
+slidesModal.forEach(sliderContentsDesktopModal =>{
+  sliderContentsDesktopModal.addEventListener('click', function(){
+      for(let i = 0; i < slidesModal.length; i++){
+          slidesModal[i].classList.remove('active-slide');
+      }
+      this.classList.add('active-slide');
+      if(imageModal.innerHTML !== ""){
+        clearcontent('imageModal');
+      }
+      index = this.getAttribute('data-clic') -1;
+      var img = document.createElement('img');
+      img.src = imgs[index].src;
+      modalImage.appendChild(img);
+  })
+})

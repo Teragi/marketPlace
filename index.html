@@ -55,7 +55,7 @@
               <p>$<span class="stronger" id="total-price">0</span></p>
               
             </div>
-            <button class="delete"><img src="images/icon-delete.svg" alt="delete"></button>
+            <button onclick="remove()" class="delete"><img src="images/icon-delete.svg" alt="delete"></button>
           </div>
           <button id="check" class="checkout"><span>Checkout</span></button>
         </div>
@@ -69,24 +69,24 @@
 </header>
 <!-- MAIN -->
 <main>
-    <section class="container-slider">
-      <div class="slider">
-        <div class="slider-contents">
-          <button id="myBtn">
-            <img class="slide active" id="image-1" src="images/image-product-1.jpg" alt="">
-            <img class="slide" id="image-2" src="images/image-product-2.jpg" alt="">
-            <img class="slide" id="image-3" src="images/image-product-3.jpg" alt="">
-            <img class="slide" id="image-4" src="images/image-product-4.jpg" alt="">
-          </button>
-        </div>
-        <!-- <div class="commandes">
-          <button class="arrow-left">
-            <img src="images/icon-previous.svg">
-          </button>
-          <button class="arrow-right">
-            <img src="images/icon-next.svg">
-          </button>
-        </div> -->
+  <section class="container-slider">
+    <div class="slider">
+      <div class="slider-contents">
+        <button id="myBtn">
+          <img class="slide active" id="image-1" src="images/image-product-1.jpg" alt="">
+          <img class="slide" id="image-2" src="images/image-product-2.jpg" alt="">
+          <img class="slide" id="image-3" src="images/image-product-3.jpg" alt="">
+          <img class="slide" id="image-4" src="images/image-product-4.jpg" alt="">
+        </button>
+      </div>
+      <!-- <div class="commandes">
+        <button class="arrow-left">
+          <img src="images/icon-previous.svg">
+        </button>
+        <button class="arrow-right">
+          <img src="images/icon-next.svg">
+        </button>
+      </div> -->
     </div>
     <div class="sliderContentsDesktop">
       <img data-clic="1" src="images/image-product-1-thumbnail.jpg" class="desktopSlide active-slide" alt="">
@@ -97,21 +97,25 @@
   </section>
   <!-- Modal -->
   <div id="myModal" class="modal">
-
     <!-- Modal content -->
     <div class="modal-content">
       <span class="close">&times;</span>
-      <button class="arrow-left">
+      <button class="arrow-modal-left">
         <img src="images/icon-previous.svg">
       </button>
-      <div id="imageModal">
-
-      </div>
-      <button class="arrow-right">
+      <div id="imageModal"></div>
+      <button class="arrow-modal-right">
         <img src="images/icon-next.svg">
       </button>
-      
+      <div class="sliderContentsDesktopModal">
+      <img data-clic="1" src="images/image-product-1-thumbnail.jpg" class="desktopSlideModal active-slide" alt="">
+      <img data-clic="2" src="images/image-product-2-thumbnail.jpg" class="desktopSlideModal" alt="">
+      <img data-clic="3" src="images/image-product-3-thumbnail.jpg" class="desktopSlideModal" alt="">
+      <img data-clic="4" src="images/image-product-4-thumbnail.jpg" class="desktopSlideModal" alt="">
     </div>
+    </div>
+    
+  </div>
 
   </div>
   <section class="content-container">

@@ -139,7 +139,7 @@ hr {
     color: #d3d3d3;
 }
 #empty{
-    display: none;
+    display: block;
 }
 .basket-empty {
     font-size: 1.5rem;
@@ -324,39 +324,83 @@ main {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 10vh; /* Location of the box */
+    padding-left: 10vw;
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
   }
   
   /* Modal Content */
   .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    display:flex;
+    flex-direction: column;
   }
   
   /* The Close Button */
   .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
+    color: #fff;
+    display:flex;
+    justify-content: end;
+    font-size: 35px;
     font-weight: bold;
   }
   
   .close:hover,
   .close:focus {
-    color: #000;
+    color: #FF4500;
     text-decoration: none;
     cursor: pointer;
   }
+
+  #imageModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+  }
+  
+
+  #imageModal img {
+    width: 40vw;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+
+ .arrow-modal-left {
+    position: relative;
+    width:30px;
+    transform: translateY(-100%);
+    top: 50%;
+    left: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: #ffff;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+} 
+
+.arrow-modal-right {
+    position: absolute;
+    z-index: 10;
+    transform: translateY(-100%);
+    top: 50%;
+    right: 16px;
+    border: none;
+    border-radius: 50%;
+    background-color: #ffff;
+    padding: 12px;
+    outline: none;
+    cursor: pointer;
+}
 
 
 /* TEXTE DROITE */
@@ -481,6 +525,25 @@ input{
 
 .amount-of-boots span {
     font-weight: 700;
+}
+
+/* Responsive */
+
+@media screen and (min-width: 600px) {
+    .slider-contents {
+        min-height: 450px;
+    }
+    .basket-wrapper {
+        flex-direction: row;
+    }
+    .add-to-cart {
+        flex: 1;
+        margin-bottom: 0;
+    }
+    .amount-of-boots {
+        flex: 1
+    }
+
 }
 
 @media screen and (max-width:800px){
