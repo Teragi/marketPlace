@@ -23,3 +23,5 @@ Florian s'est occupé:
 * du Carrousel mobile et desktop
 
 * du code Javascript sur la fenêtre modal dont comporte un caroussel 
+
+* du responsive du body
