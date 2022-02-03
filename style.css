@@ -107,8 +107,6 @@
     border-radius: 50%;
     width: 22px;
     font-size: 0.875rem;
-    animation: bounce 1s infinite alternate;
-    -webkit-animation: bounce 0.5s infinite alternate;
 }
 .basket-popover {
     position: absolute;
@@ -138,6 +136,11 @@ hr {
     margin: 0 -24px;
     color: #d3d3d3;
 }
+/* Cart shop */
+.txtCart, .sneaker-price{
+    font-size: 15px;
+    color: #d3d3d3;
+}
 #empty{
     display: block;
 }
@@ -148,6 +151,18 @@ hr {
     align-items: center;
     justify-content: center;
     color: #a9a9a9;
+}
+.second-column{
+    display: block;
+    margin: 5px;
+}
+.price{
+    display: inline-flex;
+    padding: auto;
+    margin: 3px 0 0 3px;
+}
+.basket-content{
+    display: inline-flex;
 }
 .delete {
     border: none;
@@ -161,7 +176,7 @@ hr {
     
 }
 .delete img {
-    width: 20px;
+    width: 15px;
 }
 .second-column p {
     margin-bottom: 8px
@@ -175,7 +190,7 @@ hr {
     background-color: #FF4500;
     color: #ffff;
     border-radius: 16px;
-    height: 64px;
+    height: 50px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -188,9 +203,7 @@ hr {
 }
 .basket-container {
    display: flex;
-   flex-direction: column;
-
-   
+   flex-direction: column; 
 }
 .basket-content, .checkout {
     display: none;
@@ -251,6 +264,9 @@ main {
     opacity: 1;
 }
 
+.commandes {
+    display:none;
+}
 
 
 
@@ -279,53 +295,14 @@ main {
     opacity: 0.6;
 }
 
-
-
-/* .arrow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
- .arrow-left {
-    position: absolute;
-    transform: translateY(-100%);
-    top: 50%;
-    left: 16px;
-    border: none;
-    border-radius: 50%;
-    background-color: #ffff;
-    padding: 12px;
-    justify-content: center;
-    align-items: center;
-    outline: none;
-    cursor: pointer;
-    display: none;
-} 
-
-.arrow-right {
-    position: absolute;
-    z-index: 10;
-    transform: translateY(-100%);
-    top: 50%;
-    right: 16px;
-    border: none;
-    border-radius: 50%;
-    background-color: #ffff;
-    padding: 12px;
-    display: none;
-    outline: none;
-    cursor: pointer;
-} */
-
 /* MODAL */
 
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 10vh; /* Location of the box */
-    padding-left: 10vw;
+    padding-top: 5vh; /* Location of the box */
+    padding-left: 34vw;
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -337,8 +314,7 @@ main {
   
   /* Modal Content */
   .modal-content {
-    border: 1px solid #888;
-    width: 80%;
+    width: 32vw;
     display:flex;
     flex-direction: column;
   }
@@ -367,17 +343,31 @@ main {
   
 
   #imageModal img {
-    width: 40vw;
+    width: 30vw;
     overflow: hidden;
     border-radius: 10px;
   }
 
+  .sliderContentsDesktopModal{
+      display: flex;
+      justify-content: center;
+  }
 
+  .desktopSlideModal {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 10px;
+  }
+
+/* Arrow Modal */
  .arrow-modal-left {
     position: relative;
     width:30px;
-    transform: translateY(-100%);
-    top: 50%;
+    height:30px;
+    top: 32vh;
     left: 0;
     border: none;
     border-radius: 50%;
@@ -388,16 +378,18 @@ main {
     cursor: pointer;
 } 
 
+
 .arrow-modal-right {
-    position: absolute;
-    z-index: 10;
-    transform: translateY(-100%);
-    top: 50%;
-    right: 16px;
+    position: relative;
+    width:30px;
+    height:30px;
+    top: -35vh;
+    left: 30vw;
     border: none;
     border-radius: 50%;
     background-color: #ffff;
-    padding: 12px;
+    justify-content: center;
+    align-items: center;
     outline: none;
     cursor: pointer;
 }
@@ -482,7 +474,7 @@ input{
 
 .amount-of-boots {
     width:50%;
-    background-color: #fafafa;
+    background-color: #dadada;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -499,8 +491,11 @@ input{
     border: none;
     border-radius: 16px;
     padding: 16px 0px;
+    transition: opacity 0.3s ease-in;
 }
-
+.add-to-cart:hover {
+    opacity: 0.5;
+}
 .add-to-cart span {
     color: #ffff;
     font-weight: 700;
@@ -530,23 +525,21 @@ input{
 /* Responsive */
 
 @media screen and (min-width: 600px) {
-    .slider-contents {
-        min-height: 450px;
+    .mobile-nav-toggle{
+        display:block;
+        color: #000;
+        height: 5px;
     }
-    .basket-wrapper {
-        flex-direction: row;
+    .close-mobile-nav {
+        display: block;
     }
-    .add-to-cart {
-        flex: 1;
-        margin-bottom: 0;
-    }
-    .amount-of-boots {
-        flex: 1
+    .primary-navigation{
+        display: none;
     }
 
 }
 
-@media screen and (max-width:800px){
+@media (min-width: 550px) and (max-width:800px){
     .primary-navigation {
         display: none;
     }
@@ -561,5 +554,77 @@ input{
 
     .sliderContentsDesktop {
         display: none;
+    }
+}
+
+@media screen and (max-width: 550px){
+    main {
+        /* flex-direction: column; */
+        display: block;
+        width:100%;
+        margin:0;
+        gap:0;
+    }
+
+    .content-container {
+        width: 75%;
+        margin:0 auto;
+    }
+
+    .price-wrapper {
+        flex-direction: row;
+        gap: 15vw;
+    }
+
+    .basket-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .add-to-cart {
+        margin-bottom: 40px;
+        width:80%;
+    }
+
+    .amount-of-boots{
+        width: 85%;
+    }
+
+    .sliderContentsDesktop{
+        display: none;
+    }
+
+    .slider {
+        border-radius: 0px;
+    }
+
+    .slider-contents {
+        display:block;
+        width: 100vw;
+        height: 50vh;
+    }
+
+    .commandes {
+        display :block;
+    }
+
+    .arrow-left, .arrow-right {
+        position:relative;
+        width:30px;
+        height:30px;
+        top: -28vh;
+        border: none;
+        border-radius: 50%;
+        background-color: #ffff;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .arrow-left {
+        left: 5vw;
+    }
+
+    .arrow-right {
+        left:80vw;
     }
 }
