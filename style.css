@@ -64,7 +64,7 @@
     padding-left: 16px;
     background-color: #fff; 
 }
-
+/* Links */
 .links {
     text-decoration: none;
     color: #0000;
@@ -270,8 +270,6 @@ main {
 .commandes {
     display:none;
 }
-
-
 
 .sliderContentsDesktop {
     
@@ -525,11 +523,15 @@ input{
 }
 
 /* Responsive */
-
 @media screen and (max-width: 550px){
-    /* BarNav */
+    /*Header BarNav */
     .primary-navigation {
         display: none;
+    }
+
+    .primary-header {
+        width: 100%;
+        padding: 15px;
     }
 
     .mobile-nav-toggle{
@@ -539,6 +541,25 @@ input{
     .close-mobile-nav {
         display: flex;
     }
+
+    /* Cart shop*/
+    .basket-popover {
+        position: absolute;
+        margin-top:100px;
+        margin-left:-200px;
+        top: 70px;
+        border-radius: 16px;
+        background-color: #ffff;
+        box-shadow: 1px 30px 70px -28px rgba(0, 0, 0, 0.2);
+        z-index: 110;
+        padding: 24px;
+        width: 350px;
+        height: 200px;
+    }
+    #empty{
+        margin-top: 50px;
+    }
+    /* Main */
     main {
         /* flex-direction: column; */
         display: block;
@@ -570,7 +591,7 @@ input{
     .amount-of-boots{
         width: 85%;
     }
-
+    /* Slide */
     .sliderContentsDesktop{
         display: none;
     }

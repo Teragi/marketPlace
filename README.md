@@ -12,7 +12,7 @@ Teragi s'est occupée :
 
 * d'une partie dde la mise en page en CSS 
 
-* du code Javascript sur le compteur, le panier, ainsi que les bouttons ajouter au panier et delete du panier
+* du code Javascript sur le compteur, le panier, ainsi que les bouttons ajouter au panier, delete du panier et le menu
 
 * du responsive du header
 
