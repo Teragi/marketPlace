@@ -25,3 +25,6 @@ Florian s'est occupé:
 * du code Javascript sur la fenêtre modal dont comporte un caroussel 
 
 * du responsive du body
+
+# Fin du projet le 03/02/2022
+Accès au rendu final : https://teragi.github.io/marketPlace/
